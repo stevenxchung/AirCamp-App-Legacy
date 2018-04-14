@@ -1,7 +1,7 @@
-# Latest Deployed YelpCamp Application (v2 updates)
+# Latest Deployed YelpCamp Application (v3 updates)
 
-The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp). 
-This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed). 
+The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
+This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
 For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the YelpCamp application [here](https://polar-tundra-99938.herokuapp.com/). Updates from each iteration of YelpCamp will be appended to this document.
 
 ## UI Improvements (v1 updates)
@@ -28,3 +28,10 @@ In deployed v2 of this application we will be adding a location feature to our a
 * Update new and edit forms
     * Add location input field
 * Update campground routes (we do this by using the geocoder package: npm i -S node-geocoder)
+
+## Moment JS (v3 updates)
+In deployed v3 of this application we will be adding a "time since..." feature to our application, using Moment JS. The steps are as follows:
+* Install Moment JS
+* Require Moment and add it to app.locals
+* Update campground and comment models
+* Use moment in the show.ejs file
