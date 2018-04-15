@@ -1,4 +1,4 @@
-# Latest Deployed YelpCamp Application (v3 updates)
+# Latest Deployed YelpCamp Application (v4 updates)
 
 The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
 This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
@@ -35,3 +35,11 @@ In deployed v3 of this application we will be adding a "time since..." feature t
 * Require Moment and add it to app.locals
 * Update campground and comment models
 * Use moment in the show.ejs file
+
+## Admin User Role Authorization (v4 updates)
+In deployed v4 of this application we will be adding admin user functionality to our website. The steps are as follows:
+* Modify user model to include isAdmin object
+* Add admin code input to register.ejs
+* Modify index.js router.post() route to include admin check logic
+* Add logic inside of the campgrounds show.ejs to give admin rights to edit/delete posts
+* Additionally, modify middleware index.js ownership to include admin rights to edit/delete posts
