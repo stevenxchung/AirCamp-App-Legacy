@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image">
+            <div class="caption">
+                <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            </div>
+        </div>
+        wow! plz text! i can haz mattis! very full, so swag, much word. such design! want amet! go text, much lorem, very word! such design, very design! wow. very word! wow, very full, such design! so doge, i can haz mattis! such ipsum! txt me, much word. i can haz mattis! oh my elit! want doge, very word! very full, oh my elit! such design, plz ipsum, wow. oh my elit! many layout! wow! so doge, such design, much lorem, go text, much word. i iz cute?! txt me! much lorem, i iz cute?
+    </div>
+    <div class="col-md-8">
+        <ul>
+            <% campgrounds.forEach(function(campground) { %>
+                <li>
+                    <a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a> 
+                </li>   
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+<% include ../partials/footer %>
