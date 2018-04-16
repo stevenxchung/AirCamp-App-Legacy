@@ -50,5 +50,5 @@ In deployed v5 of this application we will be adding user profiles. The steps ar
 * Update register.ejs to reflect changes in user model
 * Add new instance of User() to index.js inside of the router.post() route for register
 * Add user profile route to index.js
-* Create a new view for user profiles at view/users/show.ejs
-* Modify user profile route in index.js to route post information to view/users/show.ejs
+* Create a new view for user profiles at views/users/show.ejs
+* Modify user profile route in index.js to route post information to views/users/show.ejs

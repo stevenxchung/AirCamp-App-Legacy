@@ -1,7 +1,7 @@
 # Deployed YelpCamp Application v5
 
-The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp). 
-This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed). 
+The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
+This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
 For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the YelpCamp application [here](https://polar-tundra-99938.herokuapp.com/).
 
 ## UI Improvements (v1 updates)
@@ -50,5 +50,5 @@ In deployed v5 of this application we will be adding user profiles. The steps ar
 * Update register.ejs to reflect changes in user model
 * Add new instance of User() to index.js inside of the router.post() route for register
 * Add user profile route to index.js
-* Create a new view for user profiles at view/users/show.ejs
-* Modify user profile route in index.js to route post information to view/users/show.ejs
+* Create a new view for user profiles at views/users/show.ejs
+* Modify user profile route in index.js to route post information to views/users/show.ejs
