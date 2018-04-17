@@ -1,4 +1,4 @@
-# Latest Deployed YelpCamp Application (v5 updates)
+# Latest Deployed YelpCamp Application (v6 updates)
 
 The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
 This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
@@ -52,3 +52,14 @@ In deployed v5 of this application we will be adding user profiles. The steps ar
 * Add user profile route to index.js
 * Create a new view for user profiles at views/users/show.ejs
 * Modify user profile route in index.js to route post information to views/users/show.ejs
+
+## Edit User Profiles and UI Updates (v6 updates)
+In deployed v6 of this application we will be adding a view profile feature on the nav-bar as well as editing user profile and UI improvements. The steps are as follows:
+* Add associated user campgrounds to views/users/show.ejs
+* Add a dropdown feature to the "Signed in as..." tab
+* In the dropdown menu we will include a user profile link and an edit user profile link
+* Additionally, we will add an edit button to view/users/show.ejs which will only appear if the user owns the profile
+* Create a user.js file for routing purposes
+* Modify app.js to include user.js routes
+* Create edit.ejs under views/users/edit.ejs
+* Add RESTful routes to user.js
