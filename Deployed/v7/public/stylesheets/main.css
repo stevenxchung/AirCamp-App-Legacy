@@ -1,0 +1,49 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.delete-form {
+    display: inline;
+}
+
+/*dropdown menu top*/
+#menu .top-level {
+    float: left;
+    position: relative; 
+    width: auto;
+    display: block;
+}
+
+/*dropdown menu*/
+#menu .dropdown-menu {
+    float: none;
+    position: absolute;
+    width: 100%;
+}
+
+/*Google Maps*/
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+/*user's campgrounds*/
+#user-campgrounds {
+    text-align: center;
+}
+
+/*comments divider*/
+/* Gradient transparent - color - transparent */
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
