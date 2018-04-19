@@ -1,8 +1,8 @@
-# Latest Deployed YelpCamp Application (v6 updates)
+# Latest Deployed YelpCamp Application (v7 updates)
 
 The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
 This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
-For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the YelpCamp application [here](https://polar-tundra-99938.herokuapp.com/). Updates from each iteration of YelpCamp will be appended to this document.
+For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the YelpCamp application [here](https://powerful-meadow-57101.herokuapp.com/). Updates from each iteration of YelpCamp will be appended to this document.
 
 ## UI Improvements (v1 updates)
 In deployed v1 of this application we will be implementing the following improvements:
@@ -63,3 +63,16 @@ In deployed v6 of this application we will be adding a view profile feature on t
 * Modify app.js to include user.js routes
 * Create edit.ejs under views/users/edit.ejs
 * Add RESTful routes to user.js
+
+## Password Reset (v7 updates)
+In deployed v7 of this application we will be adding a password reset option for users. The steps are as follows:
+* Run *npm i -S async nodemailer* in the terminal (crypto is already part of express)
+* Require async, nodemailer, and crypto into index.js route
+* Create a GET and POST route for the forgot password page
+* Ensure that a legitimate email and pass is passed into process.env.GMAILPW (export GMAILPW to .env) for the post route
+* Create a view for the forgot password page
+* Ensure that username and email is unique by updating the user model
+* Add a reset password token as well as reset password time-to-expiration limit to the user model
+* Create a GET and POST route for the reset password token page
+* As before, ensure that a legitimate email and pass is passed into process.env.GMAILPW (export GMAILPW to .env) for the post route
+* Create a view for the reset password token page
