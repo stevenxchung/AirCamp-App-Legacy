@@ -8,6 +8,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     flash = require("connect-flash"),
     passport = require("passport"),
+    http = require("http");
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local"),
     Campground = require("./models/campground"),
@@ -20,9 +21,9 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     userRoutes = require("./routes/users"),
     indexRoutes = require("./routes/index");
-    
+
 // If something goes wrong we want to set the environment variable to a default path
-var url = process.env.dburl || "mongodb://localhost/yelp_camp_v12_deployed"    
+var url = process.env.dburl || "mongodb://localhost/yelp_camp_v12_deployed"
 // Check for errors if any
 console.log(url);
 
@@ -41,7 +42,7 @@ app.use(flash());
 // seedDB();
 
 // Passport Configurations
-app.use(require("express-session")({ 
+app.use(require("express-session")({
     secret: "Knock knock",
     resave: false,
     saveUninitialize: false
@@ -68,5 +69,6 @@ app.use(indexRoutes);
 
 // Standard server listen request
 app.listen(process.env.PORT, process.env.IP, function() {
-   console.log("YelpCamp is online!"); 
+   console.log("YelpCamp is online!");
+   console.log("PORT: " + process.env.PORT + " / " + "IP: " + process.env.IP);
 });
