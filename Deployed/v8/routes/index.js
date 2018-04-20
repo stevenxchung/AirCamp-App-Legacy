@@ -30,7 +30,7 @@ router.post("/register", function(req, res) {
         avatar: "https://tinyurl.com/yaraujs7",
         bio: "This user has not filled in any information"
     });
-    
+
     User.register(newUser, req.body.password, function(err, user, next) {
         // Custom error message
         if (err) {
@@ -47,7 +47,7 @@ router.post("/register", function(req, res) {
         // Authenticate user
         passport.authenticate("local")(req, res, function() {
           // Flash then redirect to campgrounds
-          req.flash("success", "Welcome to YelpCamp, " + user.username + "!"); 
+          req.flash("success", "Welcome to YelpCamp, " + user.username + "!");
           res.redirect("/campgrounds");
         });
     });
@@ -60,7 +60,7 @@ router.get("/login", function(req, res) {
 
 // Login logic
 // Includes passport.authenticate() middleware
-router.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
@@ -111,7 +111,7 @@ router.post('/forgot', function(req, res, next) {
     },
     function(token, user, done) {
       var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail', 
+        service: 'Gmail',
         auth: {
           user: 'codewiththerealchefsteph@gmail.com',
           pass: process.env.GMAILPW
@@ -177,7 +177,7 @@ router.post('/reset/:token', function(req, res) {
     },
     function(user, done) {
       var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail', 
+        service: 'Gmail',
         auth: {
           user: 'codewiththerealchefsteph@gmail.com',
           pass: process.env.GMAILPW
@@ -209,15 +209,16 @@ router.get('/change', function(req, res) {
 router.post('/change', function(req, res) {
   async.waterfall([
     function(done) {
-      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+      User.findOne({}, function(err, user) {
         if (!user) {
+          // Testing password change
+          console.log(user);
+          console.log(typeof user);
           req.flash('error', 'Password reset token is invalid or has expired.');
           return res.redirect('back');
         }
         if(req.body.password === req.body.confirm) {
           user.setPassword(req.body.password, function(err) {
-            user.resetPasswordToken = undefined;
-            user.resetPasswordExpires = undefined;
 
             user.save(function(err) {
               req.logIn(user, function(err) {
@@ -233,7 +234,7 @@ router.post('/change', function(req, res) {
     },
     function(user, done) {
       var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail', 
+        service: 'Gmail',
         auth: {
           user: 'codewiththerealchefsteph@gmail.com',
           pass: process.env.GMAILPW
@@ -255,5 +256,27 @@ router.post('/change', function(req, res) {
     res.redirect('/campgrounds');
   });
 });
+
+// Going to implement DRY code next commit
+// emailUser = function(user, done) {
+//       var smtpTransport = nodemailer.createTransport({
+//         service: 'Gmail',
+//         auth: {
+//           user: 'codewiththerealchefsteph@gmail.com',
+//           pass: process.env.GMAILPW
+//         }
+//       });
+//       var mailOptions = {
+//         to: user.email,
+//         from: 'codewiththerealchefsteph@gmail.com',
+//         subject: 'Your password has been changed',
+//         text: 'Hello,\n\n' +
+//           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+//       };
+//       smtpTransport.sendMail(mailOptions, function(err) {
+//         req.flash('success', 'Success! Your password has been changed.');
+//         done(err);
+//       });
+//     }
 
 module.exports = router;
