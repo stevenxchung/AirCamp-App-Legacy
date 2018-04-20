@@ -1,4 +1,4 @@
-# Latest Deployed YelpCamp Application (v7 updates)
+# Latest Deployed YelpCamp Application (v8 updates)
 
 The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
 This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
@@ -76,3 +76,14 @@ In deployed v7 of this application we will be adding a password reset option for
 * Create a GET and POST route for the reset password token page
 * As before, ensure that a legitimate email and pass is passed into process.env.GMAILPW (export GMAILPW to .env) for the post route
 * Create a view for the reset password token page
+
+## Register Page Clean-up and Forgot Password Link + Change Password Page (v8 updates)
+* Fix error messages on register when email is empty and when email exists (custom messages in index.js route)
+* Update redirect for edit campgrounds page to redirect to campground show page
+* Remove admin entry form from register page (more secure, admin rights will be granted via mlab)
+* Add labels to register and login page for clarity and form separation (best practices)
+* Remove first name, last name, avatar, and bio from the sign-up page since users can populate during edits
+* Set default first name, last name, avatar, and bio when a new user is created (modify index.js route)
+* Modify campground ownership header on the user's profile page to display name and username
+* Add a link to the forgot password page on the login page (also needs styling)
+* Add new routes and a view for the change password page which can be accessed via navbar dropdown menu
