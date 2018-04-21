@@ -4,6 +4,7 @@ var express = require("express"),
     async = require("async"),
     nodemailer = require("nodemailer"),
     crypto = require("crypto"),
+    middleware = require("../middleware"),
     User = require("../models/user");
 
 // Render landing page as our root "/" page
@@ -175,38 +176,21 @@ router.post('/reset/:token', function(req, res) {
         }
       });
     },
-    function(user, done) {
-      var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-          user: 'codewiththerealchefsteph@gmail.com',
-          pass: process.env.GMAILPW
-        }
-      });
-      var mailOptions = {
-        to: user.email,
-        from: 'codewiththerealchefsteph@gmail.com',
-        subject: 'Your password has been changed',
-        text: 'Hello,\n\n' +
-          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
-      };
-      smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('success', 'Success! Your password has been changed.');
-        done(err);
-      });
-    }
+    // Drying code by using emailUser function
+    emailUser
   ], function(err) {
+    req.flash('success', 'Success! Your password has been changed.');
     res.redirect('/campgrounds');
   });
 });
 
-// GET - Password change route
-router.get('/change', function(req, res) {
+// GET - Password change route + user authentication
+router.get('/change', middleware.isLoggedIn, function(req, res) {
   res.render("change", {page: "change"});
 });
 
-// POST - Password change route
-router.post('/change', function(req, res) {
+// POST - Password change route + user authentication
+router.post('/change', middleware.isLoggedIn, function(req, res) {
   async.waterfall([
     function(done) {
       User.findOne({}, function(err, user) {
@@ -232,7 +216,15 @@ router.post('/change', function(req, res) {
         }
       });
     },
-    function(user, done) {
+    // Drying code by using emailUser function
+    emailUser
+  ], function(err) {
+    req.flash('success', 'Success! Your password has been changed.');
+    res.redirect('/campgrounds');
+  });
+});
+
+function emailUser(user, done) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -244,39 +236,13 @@ router.post('/change', function(req, res) {
         to: user.email,
         from: 'codewiththerealchefsteph@gmail.com',
         subject: 'Your password has been changed',
-        text: 'Hello,\n\n' +
-          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+        text: 'Hello ' + user.username + ',\n\n' +
+          'This is a confirmation that the password for your account ' + user.email + ' on YelpCamp has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('success', 'Success! Your password has been changed.');
         done(err);
       });
+      done();
     }
-  ], function(err) {
-    res.redirect('/campgrounds');
-  });
-});
-
-// Going to implement DRY code next commit
-// emailUser = function(user, done) {
-//       var smtpTransport = nodemailer.createTransport({
-//         service: 'Gmail',
-//         auth: {
-//           user: 'codewiththerealchefsteph@gmail.com',
-//           pass: process.env.GMAILPW
-//         }
-//       });
-//       var mailOptions = {
-//         to: user.email,
-//         from: 'codewiththerealchefsteph@gmail.com',
-//         subject: 'Your password has been changed',
-//         text: 'Hello,\n\n' +
-//           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
-//       };
-//       smtpTransport.sendMail(mailOptions, function(err) {
-//         req.flash('success', 'Success! Your password has been changed.');
-//         done(err);
-//       });
-//     }
 
 module.exports = router;
