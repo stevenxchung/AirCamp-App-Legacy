@@ -78,6 +78,7 @@ In deployed v7 of this application we will be adding a password reset option for
 * Create a view for the reset password token page
 
 ## Register Page Clean-up, Forgot Password Link, and Change Password Page (v8 updates)
+In deployed v8 of this application we will be cleaning up the register page, adding a forgot password link, and a change password page. The steps are as follows:
 * Fix error messages on register when email is empty and when email exists (custom messages in index.js route)
 * Update redirect for edit campgrounds page to redirect to campground show page
 * Remove admin entry form from register page (more secure, admin rights will be granted via mlab)
