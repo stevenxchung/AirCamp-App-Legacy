@@ -1,3 +1,18 @@
+.well-inner {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.container-text {
+    margin-right: 0.5%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 4px;
+}
+
 .thumbnail img {
     width: 100%;
 }
@@ -35,7 +50,7 @@ span a {
 /*dropdown menu top*/
 #menu .top-level {
     float: left;
-    position: relative; 
+    position: relative;
     width: auto;
     display: block;
 }
