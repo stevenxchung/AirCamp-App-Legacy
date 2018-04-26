@@ -99,3 +99,7 @@ In deployed v9  of this application we will be cleaning up the comments section 
 * Add reverse() then a forEach() loop to display comments (newest-oldest) through looping
 * Add user avatar (logged in) and logic to change icon display color
 * Style UI to create separation between elements in the comments section
+
+TODO
+* Eliminate unnecessary spacing on the comment elements
+* Create capability for user replies
