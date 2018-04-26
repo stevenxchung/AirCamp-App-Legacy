@@ -20,7 +20,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
     });
 });
 
-// Added isLoggedIn middleware to proect post route from non-users
+// Added isLoggedIn middleware to protect post route from non-users
 router.post("/", middleware.isLoggedIn, function(req, res) {
     // Lookup campground using ID
     Campground.findById(req.params.id, function(err, campground) {
@@ -55,7 +55,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
            res.redirect("back");
        } else {
            res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
-       } 
+       }
     });
 });
 
