@@ -20,7 +20,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
     });
 });
 
-// Added isLoggedIn middleware to proect post route from non-users
+// Added isLoggedIn middleware to protect post route from non-users
 router.post("/", middleware.isLoggedIn, function(req, res) {
     // Lookup campground using ID
     Campground.findById(req.params.id, function(err, campground) {
@@ -33,9 +33,11 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
                 if(err) {
                     console.log(err);
                 } else {
-                    // Add username and id to comment
+                    // Add username, id, and user avatar to comment
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
+                    comment.author.avatar = req.user.avatar;
+                    console.log(req.user.avatar)
                     // Save comment
                     comment.save();
                     campground.comments.push(comment);
@@ -55,7 +57,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
            res.redirect("back");
        } else {
            res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
-       } 
+       }
     });
 });
 

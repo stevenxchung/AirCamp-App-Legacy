@@ -5,7 +5,7 @@ var express = require("express"),
     NodeGeocoder = require('node-geocoder');
 
 // Link to Google API
-// For more info on NodeGeocoder() visit https://www.npmjs.com/package/node-geocoder 
+// For more info on NodeGeocoder() visit https://www.npmjs.com/package/node-geocoder
 var options = {
   provider: 'google',
   httpAdapter: 'https',
@@ -38,7 +38,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         id: req.user._id,
         username: req.user.username
     };
-    
+
     // If there is not an error and the address has a length, apply lat, lng, and location to newCampground and redirect to campgrounds page
     geocoder.geocode(req.body.location, function(err, data) {
         if (err || !data.length) {
@@ -48,13 +48,13 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         var lat = data[0].latitude,
             lng = data[0].longitude,
             location = data[0].formattedAddress;
-        
+
         // These variables will be routed to the new campground views using Embedded JavaScript or ejs
         var newCampground = {name: name, image: image, price: price, description: des, author: author, location: location, lat: lat, lng: lng};
         // Create a new campground and save to database
         Campground.create(newCampground, function(err, newlyCreated) {
             if (err) {
-                console.log(err);    
+                console.log(err);
             } else {
                 // Redirect back to campgrounds page (via router.get("/") request) after user submits information
                 console.log(newlyCreated);
@@ -69,7 +69,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
     res.render("campgrounds/new");
 });
 
-// SHOW - show a detailed page of a campground when a specific campground is clicked (must go after NEW route or "/:id" will ignore "/new") 
+// SHOW - show a detailed page of a campground when a specific campground is clicked (must go after NEW route or "/:id" will ignore "/new")
 router.get("/:id", function(req, res) {
     // Find the campground with provided ID
     Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground) {
@@ -92,7 +92,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) 
 
 // Update Campground Route
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
-    
+
     // If there is not an error and the address has a length, apply lat, lng, and location to replace the current variables stored within req.body.campground
     geocoder.geocode(req.body.location, function(err, data) {
         if (err || !data.length) {
@@ -102,7 +102,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
         req.body.campground.lat = data[0].latitude,
         req.body.campground.lng = data[0].longitude,
         req.body.campground.location = data[0].formattedAddress;
-    
+
         // Find and update the correct campground
         Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground) {
             if (err) {
