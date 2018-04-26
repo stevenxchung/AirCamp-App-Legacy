@@ -92,10 +92,10 @@ In deployed v8 of this application we will be cleaning up the register page, add
 ## Campground Comments Improvements (v9 updates)
 In deployed v9  of this application we will be cleaning up the comments section in the campground show page to allow users to post, edit, or delete comments without painfully clicking on another page an waiting for it to render. The steps are as follows:
 * Set up the add new comment button that is used for collapsing posts in the views/campgrounds/show.ejs file
-* Create a form with method="POST" for users to submit a comment
+* Create a form with method="POST" for users to submit a comment (edit is PUT)
 * Include isLoggedIn() type check logic to secure the comments section
 * Run add autosize CDN to use autosize() on comment text area
-* Remove comment button, submit user comment on enter
 * Add logic to check if there are comments
 * Add reverse() then a forEach() loop to display comments (newest-oldest) through looping
-* Add user icon and logic to change icon display color
+* Add user avatar (logged in) and logic to change icon display color
+* Style UI to create separation between elements in the comments section
