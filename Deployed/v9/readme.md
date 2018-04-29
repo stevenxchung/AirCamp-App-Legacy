@@ -97,9 +97,10 @@ In deployed v9  of this application we will be cleaning up the comments section 
 * Create a form with method="POST" for users to submit a comment (edit is PUT)
 * Include isLoggedIn() type check logic to secure the comments section
 * Run add autosize CDN to use autosize() on comment text area (also add CDN to footer)
+* Adjust footer script to include autosize for new posts and edits (for some reason, scripts do not run when referenced locally for this project)
 * Add logic to check if there are comments
 * Add reverse() to the forEach() loop to display comments (newest-oldest) through looping
 * Add user avatar (logged in) and logic to change icon display color
 * Style UI to create separation between elements in the comments section
 * Eliminated unnecessary spacing on the comment elements
-* Added show more/show less on comments page
+* Added show more/show less on comments page by adding script and CDN in footer (for some reason, scripts do not run when referenced locally for this project)
