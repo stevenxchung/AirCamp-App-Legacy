@@ -67,7 +67,7 @@
     display: inline;
 }
 
-#user-comment-space {
+.user-comment-space {
     background-color: white;
     border-radius: 25px;
     padding: 10px 10px;
