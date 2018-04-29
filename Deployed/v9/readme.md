@@ -6,6 +6,7 @@ For more details and documentation please visit the linked YelpCamp v12 (deploye
 
 ## UI Improvements (v1 updates)
 In deployed v1 of this application we will be implementing the following improvements:
+* Rebranding to AirCamp
 * Refactoring the UI for Login and Sign Up pages
 * Update the nav-bar menu
     * Convert .container fluid to regular .container
@@ -89,17 +90,16 @@ In deployed v8 of this application we will be cleaning up the register page, add
 * Add a link to the forgot password page on the login page (also needs styling)
 * Add new routes and a view for the change password page which can be accessed via navbar dropdown menu
 
-## Campground Comments Improvements (v9 updates)
-In deployed v9  of this application we will be cleaning up the comments section in the campground show page to allow users to post, edit, or delete comments without painfully clicking on another page an waiting for it to render. The steps are as follows:
+## Campground Show Page/Comments Improvements (v9 updates)
+In deployed v9  of this application we will be cleaning up the comments section in the campground show page to allow users to post, edit, or delete comments without painfully clicking on another page an waiting for it to render. We will also add functionality to the left navigation menu. The steps are as follows:
+* Format name and add icons, links and active ui tabs to the left navigation menu in the views/campgrounds/show.ejs
 * Set up the add new comment button that is used for collapsing posts in the views/campgrounds/show.ejs file
 * Create a form with method="POST" for users to submit a comment (edit is PUT)
 * Include isLoggedIn() type check logic to secure the comments section
-* Run add autosize CDN to use autosize() on comment text area
+* Run add autosize CDN to use autosize() on comment text area (also add CDN to footer)
 * Add logic to check if there are comments
-* Add reverse() then a forEach() loop to display comments (newest-oldest) through looping
+* Add reverse() to the forEach() loop to display comments (newest-oldest) through looping
 * Add user avatar (logged in) and logic to change icon display color
 * Style UI to create separation between elements in the comments section
-
-TODO
-* Eliminate unnecessary spacing on the comment elements
-* Create capability for user replies
+* Eliminated unnecessary spacing on the comment elements
+* Added show more/show less on comments page
