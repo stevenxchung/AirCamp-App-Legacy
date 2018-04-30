@@ -5,6 +5,7 @@ This AirCamp (previously YelpCamp) application deployment series will be based o
 
 ## UI Improvements (v1 updates)
 In deployed v1 of this application we will be implementing the following improvements:
+* Rebranding to AirCamp
 * Refactoring the UI for Login and Sign Up pages
 * Update the nav-bar menu
     * Convert .container fluid to regular .container
