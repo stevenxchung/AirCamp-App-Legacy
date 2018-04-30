@@ -1,4 +1,4 @@
-// All Middleware For YelpCamp
+// All Middleware For AirCamp
 
 var Campground = require("../models/campground"),
     Comment = require("../models/comment");

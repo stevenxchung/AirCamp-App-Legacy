@@ -48,7 +48,7 @@ router.post("/register", function(req, res) {
         // Authenticate user
         passport.authenticate("local")(req, res, function() {
           // Flash then redirect to campgrounds
-          req.flash("success", "Welcome to YelpCamp, " + user.username + "!");
+          req.flash("success", "Welcome to AirCamp, " + user.username + "!");
           res.redirect("/campgrounds");
         });
     });
@@ -65,7 +65,7 @@ router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
-        successFlash: "Welcome back to YelpCamp!",
+        successFlash: "Welcome back to AirCamp!",
         failureFlash: "Invalid username or password!"
     }), function(req, res) {
 });
@@ -237,7 +237,7 @@ function emailUser(user, done) {
         from: 'codewiththerealchefsteph@gmail.com',
         subject: 'Your password has been changed',
         text: 'Hello ' + user.username + ',\n\n' +
-          'This is a confirmation that the password for your account ' + user.email + ' on YelpCamp has just been changed.\n'
+          'This is a confirmation that the password for your account ' + user.email + ' on AirCamp has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
         done(err);
