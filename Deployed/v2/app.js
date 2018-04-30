@@ -19,9 +19,9 @@ var express = require("express"),
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
-    
+
 // If something goes wrong we want to set the environment variable to a default path
-var url = process.env.dburl || "mongodb://localhost/yelp_camp_v12_deployed"    
+var url = process.env.dburl || "mongodb://localhost/yelp_camp_v12_deployed"
 // Check for errors if any
 console.log(url);
 
@@ -37,7 +37,7 @@ app.use(flash());
 // seedDB();
 
 // Passport Configurations
-app.use(require("express-session")({ 
+app.use(require("express-session")({
     secret: "Knock knock",
     resave: false,
     saveUninitialize: false
@@ -63,5 +63,5 @@ app.use(indexRoutes);
 
 // Standard server listen request
 app.listen(process.env.PORT, process.env.IP, function() {
-   console.log("YelpCamp is online!"); 
+   console.log("AirCamp is online!");
 });

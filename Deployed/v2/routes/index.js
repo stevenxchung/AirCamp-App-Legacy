@@ -26,7 +26,7 @@ router.post("/register", function(req, res) {
             return res.render("register", {error: err.message});
         }
             passport.authenticate("local")(req, res, function() {
-            req.flash("success", "Welcome to YelpCamp " + user.username);
+            req.flash("success", "Welcome to AirCamp " + user.username);
             res.redirect("/campgrounds");
         });
     });
@@ -39,7 +39,7 @@ router.get("/login", function(req, res) {
 
 // Login logic
 // Includes passport.authenticate() middleware
-router.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login"
