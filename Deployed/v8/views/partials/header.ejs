@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>YelpCamp</title>
+        <title>AirCamp</title>
         <!--bootstrap versons vary, v3.3.7 is less buggy-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
@@ -18,8 +18,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="/">YelpCamp</a>
+
+              <a class="navbar-brand" href="/">AirCamp</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
@@ -30,7 +30,7 @@
                   <li class="<%= typeof page !== "undefined" && page === "login" ? "active" : "" %>"><a href="/login">Login</a></li>
                   <li class="<%= typeof page !== "undefined" && page === "register" ? "active" : "" %>"><a href="/register">Sign Up</a></li>
                 <% } else { %>
-                          
+
                   <li class="dropdown" id="menu">
                     <a class="dropdown-toggle top-level" data-toggle="dropdown" href="#">
                       Signed in as <%= currentUser.username %>
@@ -43,14 +43,14 @@
                       <li><a href="/change">Change Password</a></li>
                     </ul>
                   </li>
-                              
+
                   <li><a href="/logout">Logout</a></li>
                 <% } %>
               </ul>
             </div>
           </div>
         </nav>
-            
+
         <div class="container">
             <% if(error && error.length > 0){ %>
                 <div class="alert alert-danger" role="alert">
@@ -63,5 +63,5 @@
                 </div>
             <% } %>
         </div>
-        
+
         <div class="container">

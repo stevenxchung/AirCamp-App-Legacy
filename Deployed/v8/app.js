@@ -69,6 +69,6 @@ app.use(indexRoutes);
 
 // Standard server listen request
 app.listen(process.env.PORT, process.env.IP, function() {
-   console.log("YelpCamp is online!");
+   console.log("AirCamp is online!");
    console.log("PORT: " + process.env.PORT + " / " + "IP: " + process.env.IP);
 });
