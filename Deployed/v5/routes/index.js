@@ -37,9 +37,9 @@ router.post("/register", function(req, res) {
         }
             passport.authenticate("local")(req, res, function() {
             if (newUser.isAdmin) {
-                req.flash("success", "Welcome to YelpCamp " + user.username + " Administrative rights granted");
+                req.flash("success", "Welcome to AirCamp " + user.username + " Administrative rights granted");
             }
-            req.flash("success", "Welcome to YelpCamp, " + user.username + "!");
+            req.flash("success", "Welcome to AirCamp, " + user.username + "!");
             res.redirect("/campgrounds");
         });
     });
@@ -52,11 +52,11 @@ router.get("/login", function(req, res) {
 
 // Login logic
 // Includes passport.authenticate() middleware
-router.post("/login", passport.authenticate("local", 
+router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
-        successFlash: "Welcome back to YelpCamp!",
+        successFlash: "Welcome back to AirCamp!",
         failureFlash: "Error, invalid username or password!"
     }), function(req, res) {
 });
@@ -80,9 +80,9 @@ router.get("/users/:id", function(req, res) {
                req.flash("error", "Something went wrong!");
                res.redirect("/");
            }
-           res.render("users/show", {user: foundUser, campgrounds: campgrounds}); 
+           res.render("users/show", {user: foundUser, campgrounds: campgrounds});
        });
-   }) 
+   })
 });
 
 module.exports = router;
