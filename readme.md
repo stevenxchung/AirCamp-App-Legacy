@@ -1,4 +1,4 @@
-# Latest Deployed YelpCamp Application (v8 updates)
+# Latest Deployed YelpCamp Application (v9 updates)
 
 The deployed YelpCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp).
 This YelpCamp application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed).
@@ -87,3 +87,18 @@ In deployed v7 of this application we will be adding a password reset option for
 * Modify campground ownership header on the user's profile page to display name and username
 * Add a link to the forgot password page on the login page (also needs styling)
 * Add new routes and a view for the change password page which can be accessed via navbar dropdown menu
+
+## Campground Show Page/Comments Improvements (v9 updates)
+In deployed v9  of this application we will be cleaning up the comments section in the campground show page to allow users to post, edit, or delete comments without painfully clicking on another page an waiting for it to render. We will also add functionality to the left navigation menu. The steps are as follows:
+* Format name and add icons, links and active ui tabs to the left navigation menu in the views/campgrounds/show.ejs
+* Set up the add new comment button that is used for collapsing posts in the views/campgrounds/show.ejs file
+* Create a form with method="POST" for users to submit a comment (edit is PUT)
+* Include isLoggedIn() type check logic to secure the comments section
+* Run add autosize CDN to use autosize() on comment text area (also add CDN to footer)
+* Adjust footer script to include autosize for new posts and edits (for some reason, scripts do not run when referenced locally for this project)
+* Add logic to check if there are comments
+* Add reverse() to the forEach() loop to display comments (newest-oldest) through looping
+* Add user avatar (logged in) and logic to change icon display color
+* Style UI to create separation between elements in the comments section
+* Eliminated unnecessary spacing on the comment elements
+* Added show more/show less on comments page by adding script and CDN in footer (for some reason, scripts do not run when referenced locally for this project)
