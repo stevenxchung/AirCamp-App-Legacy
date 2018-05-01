@@ -105,4 +105,6 @@ In deployed v9  of this application we will be cleaning up the comments section 
 
 ## Contact Page Views, Comment Section Debugging, Campground Create/Edit UI (v10 updates)
 In deployed v10, we will debug the word overflow issue as well as the container structure to make sure nothing breaks. Additionally, the Campground Create/Edit UI will be improved (description box). Finally, we will implement the contact page to allow users to contact the campground owner. The steps are as follows:
-
+* Fix comment overflow issue by implementing overflow in CSS for .user-comment-space
+* Add autosize for create/edit campgrounds in the footer.ejs file
+* Removed change username capability in users/edit.ejs
