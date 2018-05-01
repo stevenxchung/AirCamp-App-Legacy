@@ -108,3 +108,4 @@ In deployed v10, we will debug the word overflow issue as well as the container 
 * Fix comment overflow issue by implementing overflow in CSS for .user-comment-space
 * Add autosize for create/edit campgrounds in the footer.ejs file
 * Removed change username capability in users/edit.ejs
+* Run *npm install socket.io --save*
