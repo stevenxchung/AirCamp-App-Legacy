@@ -34,9 +34,12 @@ app.locals.moment = require('moment');
 mongoose.connect(url);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+
+// Folder referencing for CSS and JS
+app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/scripts"));
 
 // Seeding the database to add campgrounds and comments
 // seedDB();
