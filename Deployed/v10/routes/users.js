@@ -3,7 +3,7 @@ var express = require("express"),
     Campground = require("../models/campground"),
     middleware = require("../middleware"),
     User = require("../models/user");
-                 
+
 // Show User Profile Route
 router.get("/:id", function(req, res) {
    User.findById(req.params.id, function(err, foundUser) {
@@ -16,7 +16,7 @@ router.get("/:id", function(req, res) {
                req.flash("error", "Something went wrong!");
                res.redirect("/");
            }
-           res.render("users/show", {user: foundUser, campgrounds: campgrounds}); 
+           res.render("users/show", {user: foundUser, campgrounds: campgrounds});
        });
    });
 });

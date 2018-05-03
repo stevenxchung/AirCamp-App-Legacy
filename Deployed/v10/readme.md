@@ -103,9 +103,10 @@ In deployed v9  of this application we will be cleaning up the comments section 
 * Eliminated unnecessary spacing on the comment elements
 * Added show more/show less on comments page by adding script and CDN in footer (for some reason, scripts do not run when referenced locally for this project)
 
-## Contact Page Views, Comment Section Debugging, Campground Create/Edit UI (v10 updates)
-In deployed v10, we will debug the word overflow issue as well as the container structure to make sure nothing breaks. Additionally, the Campground Create/Edit UI will be improved (description box). Finally, we will implement the contact page to allow users to contact the campground owner. The steps are as follows:
+## Contact Page Views, Comment Section Debugging, Campground Create/Edit UI, AirCamp Theme (v10 updates)
+In deployed v10, we will debug the word overflow issue as well as the container structure to make sure nothing breaks. Additionally, the Campground Create/Edit UI will be improved (description box). Finally, we will implement the contact page to allow users to contact the campground owner. There will also be improvements to the entire theme as well. The steps are as follows:
 * Fix comment overflow issue by implementing overflow in CSS for .user-comment-space
 * Add autosize for create/edit campgrounds in the footer.ejs file
 * Removed change username capability in users/edit.ejs
 * Run *npm install socket.io --save*
+* Add route and view to contact message room with unique ID

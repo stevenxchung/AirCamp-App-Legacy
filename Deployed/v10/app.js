@@ -8,7 +8,9 @@ var express = require("express"),
     mongoose = require("mongoose"),
     flash = require("connect-flash"),
     passport = require("passport"),
-    http = require("http");
+    http = require("http"),
+    server = http.createServer(app),
+    io = require("socket.io").listen(server),
     methodOverride = require("method-override"),
     LocalStrategy = require("passport-local"),
     Campground = require("./models/campground"),
@@ -19,6 +21,7 @@ var express = require("express"),
 // Require files from /routes to route code into app.js
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
+    chatroomRoutes = require("./routes/chatrooms"),
     userRoutes = require("./routes/users"),
     indexRoutes = require("./routes/index");
 
@@ -65,13 +68,53 @@ app.use(function(req, res, next) {
     next();
 });
 
+// Use routes
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/users", userRoutes);
+app.use(chatroomRoutes);
 app.use(indexRoutes);
 
+// ======================
+// CHATROOM
+// ======================
+
+users = [];
+connections = [];
+
+// Establish connection
+io.sockets.on("connection", function(socket) {
+  connections.push(socket);
+  console.log("Connected: %s sockets connected", connections.length);
+
+  // Disconnect
+  socket.on("disconnect", function(data) {
+    users.splice(users.indexOf(socket.username), 1);
+    updateUsernames();
+    connections.splice(connections.indexOf(socket), 1);
+    console.log("Disconnected: %s sockets connected", connections.length);
+  });
+
+  // Send Message
+  socket.on("send message", function(data){
+    io.sockets.emit("new message", {msg: data, user: socket.username});
+  });
+
+  // New User
+  socket.on("new user", function(data, callback) {
+    callback(true);
+    socket.username = data;
+    users.push(socket.username);
+    updateUsernames();
+  });
+
+  function updateUsernames() {
+    io.sockets.emit("get users", users);
+  }
+});
+
 // Standard server listen request
-app.listen(process.env.PORT, process.env.IP, function() {
+server.listen(process.env.PORT, process.env.IP, function() {
    console.log("AirCamp is online!");
    console.log("PORT: " + process.env.PORT + " / " + "IP: " + process.env.IP);
 });
