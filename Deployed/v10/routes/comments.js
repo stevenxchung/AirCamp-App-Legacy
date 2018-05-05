@@ -38,7 +38,7 @@ router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, re
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
                     comment.author.avatar = req.user.avatar;
-                    console.log(req.user.avatar)
+                    // console.log(req.user.avatar)
                     // Save comment
                     comment.save();
                     campground.comments.push(comment);

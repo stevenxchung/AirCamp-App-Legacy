@@ -42,7 +42,7 @@ app.use(flash());
 
 // Folder referencing for CSS and JS
 app.use(express.static(__dirname + "/public"));
-// app.use(express.static(__dirname + "/scripts"));
+app.use(express.static(__dirname + "/scripts"));
 
 // Seeding the database to add campgrounds and comments
 // seedDB();
