@@ -63,7 +63,7 @@ router.get("/login", function(req, res) {
 // Includes passport.authenticate() middleware
 router.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/campgrounds",
+        successReturnToOrRedirect: "/campgrounds",
         failureRedirect: "/login",
         successFlash: "Welcome back to AirCamp!",
         failureFlash: "Invalid username or password!"
@@ -114,13 +114,13 @@ router.post('/forgot', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-          user: 'codewiththerealchefsteph@gmail.com',
+          user: 'aircamp.forgot@gmail.com',
           pass: process.env.GMAILPW
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'codewiththerealchefsteph@gmail.com',
+        from: 'aircamp.forgot@gmail.com',
         subject: 'Node.js Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
@@ -228,13 +228,13 @@ function emailUser(user, done) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-          user: 'codewiththerealchefsteph@gmail.com',
+          user: 'aircamp.forgot@gmail.com',
           pass: process.env.GMAILPW
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'codewiththerealchefsteph@gmail.com',
+        from: 'aircamp.forgot@gmail.com',
         subject: 'Your password has been changed',
         text: 'Hello ' + user.username + ',\n\n' +
           'This is a confirmation that the password for your account ' + user.email + ' on AirCamp has just been changed.\n'
