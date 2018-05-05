@@ -58,8 +58,24 @@ middlewareObj.isLoggedIn = function(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
     }
+    req.session.returnTo = req.url;
     req.flash("error", "Login required to perform action");
     res.redirect("/login");
 };
+
+middlewareObj.userRedirect = function complete() {
+    if (options.successReturnToOrRedirect) {
+        var url = options.successReturnToOrRedirect;
+        if (req.session && req.session.returnTo) {
+            url = req.session.returnTo;
+            delete req.session.returnTo;
+        }
+        return res.redirect(url);
+    }
+    if (options.successRedirect) {
+        return res.redirect(options.successRedirect);
+    }
+    next();
+}
 
 module.exports = middlewareObj;

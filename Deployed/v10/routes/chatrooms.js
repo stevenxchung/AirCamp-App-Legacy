@@ -6,7 +6,7 @@ var express = require("express"),
     // User = require("../models/user");
 
 // Render chatroom
-router.get("/chatroom", function(req, res) {
+router.get("/chatroom", middleware.isLoggedIn, function(req, res) {
   res.render("chatroom");
 });
 

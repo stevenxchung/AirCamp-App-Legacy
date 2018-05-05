@@ -5,7 +5,7 @@ var express = require("express"),
     User = require("../models/user");
 
 // Show User Profile Route
-router.get("/:id", function(req, res) {
+router.get("/users/:id", middleware.isLoggedIn, function(req, res) {
    User.findById(req.params.id, function(err, foundUser) {
        if (err) {
            req.flash("error", "Something went wrong!");
@@ -22,14 +22,14 @@ router.get("/:id", function(req, res) {
 });
 
 // Edit User Profile Route
-router.get("/:id/edit", function(req, res) {
+router.get("/users/:id/edit", middleware.isLoggedIn, function(req, res) {
     User.findById(req.params.id, function(err, foundUser) {
         res.render("users/edit", {user: foundUser});
     });
 });
 
 // Update User Profile Route
-router.put("/:id", function(req, res) {
+router.put("/users/:id", middleware.isLoggedIn, function(req, res) {
 
     // Find and update the correct user profile
     User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser) {

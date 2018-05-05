@@ -9,7 +9,7 @@ var express = require("express"),
 // ===============
 
 // Added isLoggedIn middleware to prevent non-users from reaching comments/new
-router.get("/new", middleware.isLoggedIn, function(req, res) {
+router.get("/campgrounds/:id/comments/new", middleware.isLoggedIn, function(req, res) {
     // Find campground by ID
     Campground.findById(req.params.id, function(err, campground) {
         if (err) {
@@ -21,7 +21,8 @@ router.get("/new", middleware.isLoggedIn, function(req, res) {
 });
 
 // Added isLoggedIn middleware to protect post route from non-users
-router.post("/", middleware.isLoggedIn, function(req, res) {
+router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, res) {
+    // Once logged in, redirect to the campground
     // Lookup campground using ID
     Campground.findById(req.params.id, function(err, campground) {
         if (err) {
@@ -51,7 +52,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 });
 
 // Comment Edit Route
-router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res) {
+router.get("/campgrounds/:id/comments/:comment_id/edit", middleware.checkCommentOwnership, function(req, res) {
     Comment.findById(req.params.comment_id, function(err, foundComment) {
        if (err) {
            res.redirect("back");
@@ -62,7 +63,7 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 });
 
 // Comment Update Route
-router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) {
+router.put("/campgrounds/:id/comments/:comment_id", middleware.checkCommentOwnership, function(req, res) {
     Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
         if(err){
             res.redirect("back");
@@ -73,7 +74,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) 
 });
 
 // Comment Destroy Route
-router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res) {
+router.delete("/campgrounds/:id/comments/:comment_id", middleware.checkCommentOwnership, function(req, res) {
     // findByIdAndRemove()
     Comment.findByIdAndRemove(req.params.comment_id, function(err) {
         if (err) {

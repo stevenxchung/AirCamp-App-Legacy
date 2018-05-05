@@ -42,7 +42,7 @@ app.use(flash());
 
 // Folder referencing for CSS and JS
 app.use(express.static(__dirname + "/public"));
-app.use(express.static(__dirname + "/scripts"));
+// app.use(express.static(__dirname + "/scripts"));
 
 // Seeding the database to add campgrounds and comments
 // seedDB();
@@ -68,10 +68,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-// Use routes
-app.use("/campgrounds/:id/comments", commentRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/users", userRoutes);
+// Import routes (used to have url shortcuts here in the first argument
+// but it would mess with the url redirect so they were removed)
+app.use(commentRoutes);
+app.use(campgroundRoutes);
+app.use(userRoutes);
 app.use(chatroomRoutes);
 app.use(indexRoutes);
 
