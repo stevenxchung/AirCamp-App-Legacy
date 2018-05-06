@@ -111,3 +111,4 @@ In deployed v10, we will debug the word overflow issue as well as the container 
 * Added userRedirect middleware to redirect users to last requested page
 * Run *npm install socket.io --save*
 * Add route and view to contact message room with unique ID
+* Changed navbar dropdown menu position to auto (fixing logging out issue on mobile)
