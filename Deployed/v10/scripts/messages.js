@@ -1,3 +1,5 @@
+$(function() {
+
 // Initialize variables and selectors
 var socket = io.connect();
 var $messageForm = $("#messageForm");
@@ -9,8 +11,6 @@ var $userFormArea = $("#userFormArea");
 var $userForm = $("#userForm");
 var $users = $("#users");
 var $username = $("#username");
-
-$(function() {
 
   // Send message on submit
   $messageForm.submit(function(e) {
@@ -31,9 +31,6 @@ $(function() {
       if (data) {
         $userFormArea.hide();
         $messageArea.show();
-        // $.get("chatroom.ejs", function(data) {
-        //   console.log("Data Loaded: " + data);
-        // });
       }
     });
     $username.val("");
@@ -42,7 +39,7 @@ $(function() {
   // Get a list of online users
   socket.on("get users", function(data) {
     var html = '';
-    for (i =0; i < data.length; i++) {
+    for (i = 0; i < data.length; i++) {
       html += '<li class="list-group-item">' + data[i] + '</li>';
     }
     $users.html(html);
