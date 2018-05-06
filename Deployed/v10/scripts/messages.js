@@ -31,6 +31,9 @@ $(function() {
       if (data) {
         $userFormArea.hide();
         $messageArea.show();
+        // $.get("chatroom.ejs", function(data) {
+        //   console.log("Data Loaded: " + data);
+        // });
       }
     });
     $username.val("");
