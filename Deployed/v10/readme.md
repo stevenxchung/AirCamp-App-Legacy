@@ -110,5 +110,6 @@ In deployed v10, we will debug the word overflow issue as well as the container 
 * Removed change username capability in users/edit.ejs
 * Added userRedirect middleware to redirect users to last requested page
 * Run *npm install socket.io --save*
-* Add route and view to contact message room with unique ID
+* Add route and view to contact chat room
+* Create vanilla JS script as well as socket interactions between the client (message.js) and server (app.js)
 * Changed navbar dropdown menu position to auto (fixing logging out issue on mobile)
