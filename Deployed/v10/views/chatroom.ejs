@@ -1,82 +1,18 @@
-<% include ./partials/header %>
+<% include ./partials/chatheader %>
 
-  <div class="container chatroom">
-    <div id="userFormArea" class="row" style="width: 30%; margin: 25px auto;">
-      <div class="col-md-12">
-        <form id="userForm">
-          <h1 style="text-align: center">Chatroom Sign On</h1>
-            <div class="form-group" style="margin: 25px auto;">
-              <input class="form-control" id="username" value="<%= currentUser.username %>" readonly></input>
-            </div>
-            <div class="form-group" style="margin: 25px auto;">
-                <button class="btn btn-lg btn-primary btn-block">Enter</button>
-            </div>
-          </form>
-      </div>
-    </div>
+<!-- HEADER END -->
+<!-- Separate CSS file for the chatroom -->
 
-    <div id="messageArea" class="row">
-      <div class="col-md-4">
-        <div class="well">
-          <h3>Online Users</h3>
-          <ul class="list-group" id="users">
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-md-8">
-        <div class="chat" id="chat">
-          <form id="messageForm">
-            <div class="form-group">
-              <label>Enter Messages</label>
-              <textarea class="form-control" id="message"></textarea>
-              </br>
-              <input type="submit" class="btn btn-primary" value="Send Message">
-            </div>
-          </form>
-        </div>
-      </div>
-
-    </div>
+<div id="airchat">
+  <div id="chat-window">
+    <div id="output"></div>
   </div>
+  <input class="chat-input" type="text" id="handle" value="<%= currentUser.username %>" readonly/>
+  <input class="chat-input" type="message" id="message" placeholder="Message"/>
+  <button class="chat-button" id="send">Send</button>
+</div>
 
-  <!-- FOOTER -->
-  <!-- message.js appears to mess with the user/campground ids so we import that only for chatroom.ejs -->
+<!-- FOOTER BEGIN -->
+<!-- Separate script for the chatroom -->
 
-        </div> <!-- ./container -->
-
-        <!-- jQuery CDN -->
-        <script
-          src="https://code.jquery.com/jquery-3.1.1.min.js"
-          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-          crossorigin="anonymous"></script>
-
-        <!-- Bootstrap JS CDN -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-        <!-- Autosize Text -->
-        <script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
-        <script type="text/javascript">
-          autosize(document.getElementById("text-area-comment"));
-          autosize(document.getElementById("text-area-edit"));
-          autosize(document.getElementById("description"));
-        </script>
-
-        <!-- Show More/Less -->
-        <script type="text/javascript" src="https://viralpatel.net/blogs/demo/jquery/jquery.shorten.1.0.js"></script>
-        <script type="text/javascript">
-          $(document).ready(function() {
-            $(".user-comment-space").shorten({
-              "showChars": 200
-            });
-            $(".campground-text").shorten({
-              "showChars": 300
-            });
-          });
-        </script>
-
-        <!-- Import Socket.io Functions -->
-        <script type="text/javascript" src="messages.js"></script>
-
-    </body>
-</html>
+<% include ./partials/chatfooter %>

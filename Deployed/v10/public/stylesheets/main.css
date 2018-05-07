@@ -91,14 +91,6 @@
     overflow: auto;
 }
 
-.chatroom {
-  margin-top: 30px;
-}
-
-#messageArea {
-  display: none;
-}
-
 /*fix inline-block spacing*/
 #login-forgot-p {
     font-size: 0;

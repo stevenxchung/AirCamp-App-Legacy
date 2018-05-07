@@ -80,38 +80,14 @@ app.use(indexRoutes);
 // CHATROOM
 // ======================
 
-users = [];
-connections = [];
-
 // Establish connection
 io.sockets.on("connection", function(socket) {
-  connections.push(socket);
-  console.log("Connected: %s sockets connected", connections.length);
+  console.log("Made socket connection:", socket.id);
 
-  // Disconnect
-  socket.on("disconnect", function(data) {
-    users.splice(users.indexOf(socket.username), 1);
-    updateUsernames();
-    connections.splice(connections.indexOf(socket), 1);
-    console.log("Disconnected: %s sockets connected", connections.length);
+  // Step 2 - Listen to socket and take in data object from the client
+  socket.on("chat", function(data) {
+    io.sockets.emit("chat", data);
   });
-
-  // Send Message
-  socket.on("send message", function(data){
-    io.sockets.emit("new message", {msg: data, user: socket.username});
-  });
-
-  // New User
-  socket.on("new user", function(data, callback) {
-    callback(true);
-    socket.username = data;
-    users.push(socket.username);
-    updateUsernames();
-  });
-
-  function updateUsernames() {
-    io.sockets.emit("get users", users);
-  }
 });
 
 // Standard server listen request
