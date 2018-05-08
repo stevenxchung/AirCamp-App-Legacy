@@ -8,6 +8,14 @@ h2 {
     color: #337ab7;
 }
 
+#online {
+    max-width: 800px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
 #airchat {
     max-width: 800px;
     margin: 30px auto;

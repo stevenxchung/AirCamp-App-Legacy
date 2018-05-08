@@ -6,7 +6,13 @@ var message = document.getElementById("message"),
     handle = document.getElementById("handle"),
     // btn = document.getElementById("send"),
     output = document.getElementById("output"),
-    feedback = document.getElementById("feedback");
+    feedback = document.getElementById("feedback"),
+    chatBody = document.getElementById("chatBody"),
+    userList = document.getElementById("userList");
+
+chatBody.onload = function () {
+  userList.innerHTML = "<li class='list-group-item'>Test</li>";
+}
 
 // Emit events
 // Chat Step 1 - Listen for the enter key then send data to the server
