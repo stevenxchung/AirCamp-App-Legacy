@@ -3,13 +3,15 @@
 <!-- HEADER END -->
 <!-- Separate CSS file for the chatroom -->
 
+<h1>AirCamp Chat</h1>
+
 <div id="airchat">
   <div id="chatWindow">
     <div id="output"></div>
     <div id="feedback"></div>
   </div>
   <input class="chat-input" type="text" id="handle" value="<%= currentUser.username %>" readonly/>
-  <input class="chat-input" type="message" id="message" placeholder="Message"/>
+  <input class="chat-input" type="message" id="message" placeholder="Type a message..."/>
   <button class="chat-button" id="send">Send</button>
 </div>
 
