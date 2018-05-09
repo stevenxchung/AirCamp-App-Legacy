@@ -90,15 +90,17 @@ io.sockets.on("connection", function(socket) {
 
   // Disconnect
   socket.on("disconnect", function(data) {
-    users.splice(users.indexOf(socket.newUser), 1);
+    users.splice(users.indexOf(socket.username), 1); // Bug might be here since it needs to know where newUser is
     updateUsernames();
     connections.splice(connections.indexOf(socket), 1);
     console.log("Disconnected: %s sockets connected", connections.length);
+    console.log("socket.username is " + socket.username);
   });
 
   // Retrieve username and add to users array
   socket.on("new user", function(data) {
-    users.push(data.newUser);
+    socket.username = data.newUser
+    users.push(socket.username);
     updateUsernames();
     console.log(users);
   });

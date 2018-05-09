@@ -20,6 +20,7 @@ chatBody.onload = function () {
 
 // Render list of users to client
 socket.on("get users", function(data) {
+  // Bug might be in the implementation of this loop, although not very likely
   var html = "";
   for (i = 0; i < data.length; i++) {
     html += "<li class='list-group-item'>" + data[i] + "</li>";
