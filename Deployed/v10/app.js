@@ -90,8 +90,17 @@ io.sockets.on("connection", function(socket) {
 
   // Disconnect
   socket.on("disconnect", function(data) {
+    users.splice(users.indexOf(socket.newUser), 1);
+    updateUsernames();
     connections.splice(connections.indexOf(socket), 1);
     console.log("Disconnected: %s sockets connected", connections.length);
+  });
+
+  // Retrieve username and add to users array
+  socket.on("new user", function(data) {
+    users.push(data.newUser);
+    updateUsernames();
+    console.log(users);
   });
 
   // Chat Step 2 - Listen to socket and take in data object from the client
@@ -103,6 +112,10 @@ io.sockets.on("connection", function(socket) {
   socket.on("typing", function(data) {
     socket.broadcast.emit("typing", data);
   });
+
+  function updateUsernames() {
+    io.sockets.emit("get users", users);
+  }
 });
 
 // Standard server listen request

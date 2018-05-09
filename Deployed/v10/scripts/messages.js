@@ -10,9 +10,22 @@ var message = document.getElementById("message"),
     chatBody = document.getElementById("chatBody"),
     userList = document.getElementById("userList");
 
+// On load, add new user send username to server
 chatBody.onload = function () {
-  userList.innerHTML = "<li class='list-group-item'>Test</li>";
+  // userList.innerHTML = "<li class='list-group-item'>" + handle.value + "</li>";
+  socket.emit("new user", {
+    newUser: handle.value
+  });
 }
+
+// Render list of users to client
+socket.on("get users", function(data) {
+  var html = "";
+  for (i = 0; i < data.length; i++) {
+    html += "<li class='list-group-item'>" + data[i] + "</li>";
+  }
+  userList.innerHTML = html;
+});
 
 // Emit events
 // Chat Step 1 - Listen for the enter key then send data to the server
@@ -29,7 +42,7 @@ message.addEventListener("keydown", function(e) {
 });
 
 // Chat Step 3 - Listen for events and post response
-socket.on("chat", function(data){
+socket.on("chat", function(data) {
   // Scroll condition
   var isScrolledToBottom = chatWindow.scrollHeight - chatWindow.clientHeight <= chatWindow.scrollTop + 1;
   // Clear feedback broadcast once user is has sent a message
