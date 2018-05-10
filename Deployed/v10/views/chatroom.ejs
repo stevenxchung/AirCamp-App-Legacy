@@ -5,21 +5,26 @@
 
 <h1>AirCamp Chat</h1>
 
-<div id="online">
-  <h2>Online Users</h2>
-  <div id="userWindow">
-    <ul class="list-group" id="userList"></ul>
-  </div>
-</div>
+<div class="container">
 
-<div id="airchat">
-  <div id="chatWindow">
-    <div id="output"></div>
-    <div id="feedback"></div>
+  <div id="online">
+    <h2>Online Users</h2>
+    <hr class="style-two">
+    <div id="userWindow">
+      <ul class="list-group" id="userList"></ul>
+    </div>
   </div>
-  <input class="chat-input" type="text" id="handle" value="<%= currentUser.username %>" readonly/>
-  <input class="chat-input" type="message" id="message" placeholder="Type a message..."/>
-  <button class="chat-button" id="send">Send</button>
+
+  <div id="airchat">
+    <div id="chatWindow">
+      <div id="output"></div>
+      <div id="feedback"></div>
+    </div>
+    <input class="chat-input" type="text" id="handle" value="<%= currentUser.username %>" readonly/>
+    <input class="chat-input" type="message" id="message" placeholder="Type a message..."/>
+    <button class="chat-button" id="send">Send</button>
+  </div>
+
 </div>
 
 <!-- FOOTER BEGIN -->

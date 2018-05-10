@@ -94,7 +94,7 @@ io.sockets.on("connection", function(socket) {
     updateUsernames();
     connections.splice(connections.indexOf(socket), 1);
     console.log("Disconnected: %s sockets connected", connections.length);
-    console.log("socket.username is " + socket.username);
+    // console.log("socket.username is " + socket.username);
   });
 
   // Retrieve username and add to users array
@@ -102,7 +102,7 @@ io.sockets.on("connection", function(socket) {
     socket.username = data.newUser
     users.push(socket.username);
     updateUsernames();
-    console.log(users);
+    // console.log(users);
   });
 
   // Chat Step 2 - Listen to socket and take in data object from the client
