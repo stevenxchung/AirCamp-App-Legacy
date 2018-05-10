@@ -107,9 +107,11 @@ In deployed v9  of this application we will be cleaning up the comments section 
 In deployed v10, we will debug the word overflow issue as well as the container structure to make sure nothing breaks. Additionally, the Campground Create/Edit UI will be improved (description box). The contact page to allow users to contact the campground owner. Passport will now redirect to the last page that was requested after user logs on. There will also be improvements to the entire theme as well. The steps are as follows:
 * Fix comment overflow issue by implementing overflow in CSS for .user-comment-space
 * Add autosize for create/edit campgrounds in the footer.ejs file
+* Update UI in campground/show.ejs page such that the page is less buggy when resizing
 * Removed change username capability in users/edit.ejs
 * Added userRedirect middleware to redirect users to last requested page
 * Run *npm install socket.io --save*
 * Add route and view to contact chat room
 * Create vanilla JS script as well as socket interactions between the client (message.js) and server (app.js)
 * Changed navbar dropdown menu position to auto (fixing logging out issue on mobile)
+* Improve UI for AirCamp Chat (separate CSS) which will include an online users list as well as a chat window
