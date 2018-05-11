@@ -1,4 +1,4 @@
-# Latest Deployed AirCamp Application (v9 updates)
+# Latest Deployed AirCamp Application (v10 updates)
 
 The deployed AirCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp). This AirCamp (previously YelpCamp) application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed). For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. This website uses Heroku and mLab cloud database for hosting, you can see the latest stable build of the AirCamp application [here](https://agile-depths-11025.herokuapp.com/). Updates from each iteration of YelpCamp will be appended to this document.
 
@@ -101,3 +101,16 @@ In deployed v9  of this application we will be cleaning up the comments section 
 * Style UI to create separation between elements in the comments section
 * Eliminated unnecessary spacing on the comment elements
 * Added show more/show less on comments page by adding script and CDN in footer (for some reason, scripts do not run when referenced locally for this project)
+
+## Contact Page Views, Comment Section Debugging, Campground Create/Edit UI, Passport Redirect, AirCamp Theme (v10 updates)
+In deployed v10, we will debug the word overflow issue as well as the container structure to make sure nothing breaks. Additionally, the Campground Create/Edit UI will be improved (description box). The contact page to allow users to contact the campground owner. Passport will now redirect to the last page that was requested after user logs on. There will also be improvements to the entire theme as well. The steps are as follows:
+* Fix comment overflow issue by implementing overflow in CSS for .user-comment-space
+* Add autosize for create/edit campgrounds in the footer.ejs file
+* Update UI in campground/show.ejs page such that the page is less buggy when resizing
+* Removed change username capability in users/edit.ejs
+* Added userRedirect middleware to redirect users to last requested page
+* Run *npm install socket.io --save*
+* Add route and view to contact chat room
+* Create vanilla JS script as well as socket interactions between the client (message.js) and server (app.js)
+* Changed navbar dropdown menu position to auto (fixing logging out issue on mobile)
+* Improve UI for AirCamp Chat (separate CSS) which will include an online users list as well as a chat window
