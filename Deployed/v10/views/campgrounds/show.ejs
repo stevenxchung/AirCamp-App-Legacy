@@ -34,7 +34,7 @@
                         </h4>
                         <p class="campground-text"><%= campground.description %></p>
                         <p>
-                            <em>Submitted by <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
+                            <em>Submitted by <a href="/users/<%= campground.author.id %>"><%= campground.author.userDisplay %></a>, <%= moment(campground.createdAt).fromNow() %></em>
                         </p>
                         <!--Must check for both currentUser and campground.author.id.equals(currentUser._id), otherwise, will throw "currentUser undefined error"-->
                         <!--Includes admin rights logic-->
@@ -93,7 +93,7 @@
 
                                     <!--Printing the comment-->
                                     <p class="user-comment-space">
-                                        <strong><a href="/users/<%= comment.author.id %>"><%= comment.author.username %></a></strong>
+                                        <strong><a href="/users/<%= comment.author.id %>"><%= comment.author.userDisplay %></a></strong>
                                         <%= comment.text %>
                                     </p>
 

@@ -13,7 +13,7 @@
             <!--User Bio-->
             <p><%= user.bio %></p>
         </div>
-        <h1 id="user-campgrounds"><%= user.firstName + " " + user.lastName %>'s (<%= user.username %>) Campgrounds</h1>
+        <h1 id="user-campgrounds"><%= user.firstName + " " + user.lastName %>'s (<%= user.userDisplay %>) Campgrounds</h1>
         <div class="row text-center" style="display: flex; flex-wrap: wrap;">
             <% campgrounds.forEach(function(campground){ %>
                 <div class="col-md-6 col-sm-6">

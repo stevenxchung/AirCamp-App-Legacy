@@ -36,7 +36,7 @@ router.post("/campgrounds", middleware.isLoggedIn, function(req, res) {
     var des = req.body.description;
     var author = {
         id: req.user._id,
-        username: req.user.username
+        userDisplay: req.user.userDisplay
     };
 
     // If there is not an error and the address has a length, apply lat, lng, and location to newCampground and redirect to campgrounds page

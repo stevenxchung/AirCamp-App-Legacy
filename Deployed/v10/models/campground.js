@@ -10,7 +10,7 @@ var campgroundSchema = new mongoose.Schema({
     lat: Number,
     lng: Number,
     createdAt: {
-        type: Date, 
+        type: Date,
         default: Date.now
     },
     author: {
@@ -18,7 +18,7 @@ var campgroundSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        username: String
+        userDisplay: String
     },
     comments: [
         {

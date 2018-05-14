@@ -24,13 +24,17 @@ router.get("/register", function(req, res) {
 // Sign up logic
 router.post("/register", function(req, res) {
     var newUser = new User({
-        username: req.body.username,
+        username: req.body.username.toLowerCase(),
+        userDisplay: req.body.username,
         email: req.body.email,
         firstName: "New",
         lastName: "User",
         avatar: "https://tinyurl.com/yaraujs7",
-        bio: "This user has not filled in any information"
+        bio: "This user has not filled in any information."
     });
+
+    // Lowercase username in the form to match the stored username we just created to prevent authentication bugs
+    req.body.username = req.body.username.toLowerCase();
 
     User.register(newUser, req.body.password, function(err, user, next) {
         // Custom error message
@@ -45,10 +49,11 @@ router.post("/register", function(req, res) {
             console.log(err);
             return res.render("register", {error: err.message});
         }
+
         // Authenticate user
         passport.authenticate("local")(req, res, function() {
           // Flash then redirect to campgrounds
-          req.flash("success", "Welcome to AirCamp, " + user.username + "!");
+          req.flash("success", "Welcome to AirCamp, " + user.userDisplay + "!");
           res.redirect("/campgrounds");
         });
     });
@@ -61,7 +66,7 @@ router.get("/login", function(req, res) {
 
 // Login logic
 // Includes passport.authenticate() middleware
-router.post("/login", passport.authenticate("local",
+router.post("/login", middleware.usernameLower, passport.authenticate("local",
     {
         successReturnToOrRedirect: "/campgrounds",
         failureRedirect: "/login",
@@ -236,7 +241,7 @@ function emailUser(user, done) {
         to: user.email,
         from: 'aircamp.forgot@gmail.com',
         subject: 'Your password has been changed',
-        text: 'Hello ' + user.username + ',\n\n' +
+        text: 'Hello ' + user.userDisplay + ',\n\n' +
           'This is a confirmation that the password for your account ' + user.email + ' on AirCamp has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {

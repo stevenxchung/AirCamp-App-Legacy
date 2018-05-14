@@ -78,4 +78,9 @@ middlewareObj.userRedirect = function complete() {
     next();
 }
 
+middlewareObj.usernameLower = function(req, res, next) {
+        req.body.username = req.body.username.toLowerCase();
+        next();
+}
+
 module.exports = middlewareObj;

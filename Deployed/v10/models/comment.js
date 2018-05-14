@@ -11,7 +11,7 @@ var commentSchema = mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        username: String,
+        userDisplay: String,
         avatar: String
     }
 });

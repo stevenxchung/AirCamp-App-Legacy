@@ -36,7 +36,7 @@ router.post("/campgrounds/:id/comments", middleware.isLoggedIn, function(req, re
                 } else {
                     // Add username, id, and user avatar to comment
                     comment.author.id = req.user._id;
-                    comment.author.username = req.user.username;
+                    comment.author.userDisplay = req.user.userDisplay;
                     comment.author.avatar = req.user.avatar;
                     // console.log(req.user.avatar)
                     // Save comment
