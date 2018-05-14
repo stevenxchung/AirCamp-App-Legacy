@@ -115,3 +115,5 @@ In deployed v10, we will debug the word overflow issue as well as the container 
 * Create vanilla JS script as well as socket interactions between the client (message.js) and server (app.js)
 * Changed navbar dropdown menu position to auto (fixing logging out issue on mobile)
 * Improve UI for AirCamp Chat (separate CSS) which will include an online users list as well as a chat window
+* Add case-insensitive usernames on register and login as well as username rules on register
+* Add autosize for bio text area on views/users/edit.ejs
