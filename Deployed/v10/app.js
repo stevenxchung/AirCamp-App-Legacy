@@ -26,7 +26,7 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
 
 // If something goes wrong we want to set the environment variable to a default path
-var url = process.env.dburl || "mongodb://localhost/yelp_camp_v12_deployed"
+var url = process.env.dburl || "mongodb://localhost/aircamp"
 // Check for errors if any
 console.log(url);
 
