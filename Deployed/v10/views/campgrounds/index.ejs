@@ -9,7 +9,7 @@
             <% if(currentUser) { %>
             <!--If the user is logged in, show the post campground button -->
             <p>
-                <a class="btn btn-primary btn-large post-camp" href="/campgrounds/new">Post a new campground</a>
+                <a class="btn btn-transparent btn-large post-camp" href="/campgrounds/new">Post a new campground</a>
             </p>
             <% } %>
         </div>
@@ -19,13 +19,11 @@
         <% campgrounds.forEach(function(campground){ %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
-                    <img src="<%= campground.image %>">
+                    <a href="/campgrounds/<%= campground._id %>"><img src="<%= campground.image %>"></a>
                     <div class="caption">
                         <h4><%= campground.name %></h4>
+                        <p>$<%= campground.price %> per night</p>
                     </div>
-                    <p>
-                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
-                    </p>
                 </div>
             </div>
         <% }); %>
