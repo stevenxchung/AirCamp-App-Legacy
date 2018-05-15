@@ -1,3 +1,28 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background-color: #404040;
+}
+
+.navbar a {
+    color: white;
+}
+.navbar-default {
+    background-color: rgba(0,0,0,0.8);
+    border-color: rgba(0,0,0,0.8);
+}
+
+.jumbotron {
+    height: 400px;
+    background-image: url(https://tinyurl.com/yanavken);
+    background-repeat: no-repeat;
+    background-position: 0% 75%;
+    background-size: 1150px;
+}
+
 .alert {
     margin-right: -0.5%;
     margin-left: 0.5%;
@@ -101,6 +126,44 @@
     float: right;
     display: inline;
     overflow: auto;
+}
+
+#welcome {
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    animation: fadein-welcome 3s;
+}
+
+@keyframes fadein-welcome {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1
+  }
+}
+
+#tag-line {
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    animation: fadein-tag 6s;
+}
+
+@keyframes fadein-tag {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    opacity: 1
+  }
 }
 
 /*fix inline-block spacing*/
