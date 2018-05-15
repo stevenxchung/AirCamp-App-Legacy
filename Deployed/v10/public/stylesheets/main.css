@@ -1,7 +1,22 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f7f7f7;
-    padding-top: 100px;
+    padding-top: 80px;
+}
+
+.btn-transparent {
+    background: transparent;
+    color: #ace388;
+    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    border: 2px solid #ace388;
+}
+
+.btn-transparent:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.2);
 }
 
 .jumbotron {
@@ -13,7 +28,7 @@ body {
 }
 
 .post-camp {
-    margin-top: 2%;
+    margin-top: 1%;
     animation: fadein-camp 7s;
 }
 
@@ -106,16 +121,23 @@ body {
     text-align: right;
 }
 
-.thumbnail img {
-    width: 100%;
-}
-
+/*Campground thumbnails on index page*/
 .thumbnail {
     padding: 0;
+    border-radius: 6px;
+    border-style: none;
+    background: transparent;
 }
 
-.thumbnail .caption-full {
+.thumbnail img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.thumbnail .caption {
     padding: 9px;
+    text-align: left;
+    overflow: auto;
 }
 
 .delete-form {
