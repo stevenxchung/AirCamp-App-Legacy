@@ -45,6 +45,27 @@ body {
   }
 }
 
+.user-container-right {
+/*    border: 2px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;*/
+    margin-left: 12px;
+    padding: 0px 14px;
+}
+
+.user-bio {
+    border: 2px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    margin-left: 12px;
+}
+
+.user-bio h1 {
+    text-align: center;
+}
+
+.user-email {
+    margin-top: 10px;
+}
+
 .alert {
     margin-right: -0.5%;
     margin-left: 0.5%;
@@ -106,7 +127,7 @@ body {
 
 .below-comments {
     margin-top: -1%;
-    margin-left: 11%;
+    margin-left: 12%;
     height: 0%;
     float: left;
     display: inline;
@@ -119,6 +140,13 @@ body {
     margin-right: 2%;
     width: 20%;
     text-align: right;
+}
+
+/*Contains the listing on the right of the campground show page*/
+.listing-container {
+    border: 2px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    padding: 25px;
 }
 
 /*Campground thumbnails on index page*/
@@ -134,10 +162,55 @@ body {
     border-radius: 6px;
 }
 
+/*Thumbnail on the user page*/
 .thumbnail .caption {
     padding: 9px;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+/*overflow-wrap prevents strange things from happening with overflow*/
+.thumbnail .caption-index {
+    padding: 9px;
     text-align: left;
-    overflow: auto;
+    overflow-wrap: break-word;
+}
+
+/*Thumbnail on the show page*/
+.thumbnail-show {
+    margin-bottom: 25px;
+}
+
+/*Campground listing on index page*/
+.caption-index h4 {
+    margin-top: -12px;
+    margin-bottom: 5px;
+}
+
+/*Campground price on the index page*/
+.caption-index p {
+    color: #b1040e;
+}
+
+.img-responsive {
+    border-radius: 6px;
+}
+
+/*The top left title on the campgrounds show page*/
+.lead {
+    overflow-wrap: break-word;
+}
+
+/*hr on the campground listing page in the right container*/
+.hr-list {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*Campground price on the show page*/
+.pull-right {
+    margin-top: 0px;
+    color: #b1040e;
 }
 
 .delete-form {
@@ -147,14 +220,30 @@ body {
 .user-comment-space {
     background-color: white;
     border-radius: 25px;
-    padding: 10px 10px;
+    padding: 10px 20px;
+    margin-right: 5px;
     margin-left: 0%;
     margin-top: 2%;
     margin-bottom: 2%;
     width: 90%;
     float: right;
     display: inline;
-    overflow: auto;
+    overflow-wrap: break-word;
+}
+
+/*Campground location on index page*/
+#index-list-location {
+    color: #7952b3;
+    text-transform: uppercase;
+    margin-bottom: -15px;
+}
+
+#hr-comment-show {
+    margin-top: 15px;
+}
+
+#text-area-comment {
+    margin-top: 10px;
 }
 
 #welcome {
@@ -243,6 +332,12 @@ span a {
 /*user's campgrounds*/
 #user-campgrounds {
     text-align: center;
+    overflow-wrap: break-word;
+}
+
+/*Campground listing title on the show page*/
+#campground-name {
+    margin-top: 20px;
 }
 
 /*comments divider*/
