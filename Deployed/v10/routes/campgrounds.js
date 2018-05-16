@@ -42,7 +42,7 @@ router.post("/campgrounds", middleware.isLoggedIn, function(req, res) {
     // If there is not an error and the address has a length, apply lat, lng, and location to newCampground and redirect to campgrounds page
     geocoder.geocode(req.body.location, function(err, data) {
         if (err || !data.length) {
-            req.flash("error", "Invalid address!");
+            req.flash("error", "Must be a valid location!");
             return res.redirect("back");
         }
         var lat = data[0].latitude,
