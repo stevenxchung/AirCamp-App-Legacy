@@ -117,3 +117,6 @@ In deployed v10, we will debug the word overflow issue as well as the container 
 * Improve UI for AirCamp Chat (separate CSS) which will include an online users list as well as a chat window
 * Add case-insensitive usernames on register and login as well as username rules on register
 * Add autosize for bio text area on views/users/edit.ejs
+* Add rules and requirements to campground post/edit forms
+* Update index, listing, and user profile UI (also minor changes in chat room)
+* Update index page to reflect campground posts more clear
