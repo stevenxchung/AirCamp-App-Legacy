@@ -20,7 +20,9 @@
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail">
                     <a href="/campgrounds/<%= campground._id %>"><img src="<%= campground.image %>"></a>
-                    <div class="caption">
+                    <div class="caption-index">
+                        <p id="index-list-location"><%= campground.location %></p>
+                        <hr class="style-two">
                         <h4><%= campground.name %></h4>
                         <p>$<%= campground.price %> per night</p>
                     </div>
