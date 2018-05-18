@@ -16,7 +16,7 @@ chatBody.onload = function () {
   socket.emit("new user", {
     newUser: handle.value
   });
-}
+};
 
 // Render list of users to client
 socket.on("get users", function(data) {

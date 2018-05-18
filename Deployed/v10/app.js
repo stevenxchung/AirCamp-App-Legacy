@@ -26,7 +26,7 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
 
 // If something goes wrong we want to set the environment variable to a default path
-var url = process.env.dburl || "mongodb://localhost/aircamp"
+var url = process.env.dburl || "mongodb://localhost/aircamp";
 // Check for errors if any
 console.log(url);
 
@@ -99,7 +99,7 @@ io.sockets.on("connection", function(socket) {
 
   // Retrieve username and add to users array
   socket.on("new user", function(data) {
-    socket.username = data.newUser
+    socket.username = data.newUser;
     users.push(socket.username);
     updateUsernames();
     // console.log(users);
