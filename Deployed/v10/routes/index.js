@@ -230,24 +230,24 @@ router.post('/change', middleware.isLoggedIn, function(req, res) {
 });
 
 function emailUser(user, done) {
-      var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail',
-        auth: {
-          user: 'aircamp.forgot@gmail.com',
-          pass: process.env.GMAILPW
-        }
-      });
-      var mailOptions = {
-        to: user.email,
-        from: 'aircamp.forgot@gmail.com',
-        subject: 'Your password has been changed',
-        text: 'Hello ' + user.userDisplay + ',\n\n' +
-          'This is a confirmation that the password for your account ' + user.email + ' on AirCamp has just been changed.\n'
-      };
-      smtpTransport.sendMail(mailOptions, function(err) {
-        done(err);
-      });
-      done();
+  var smtpTransport = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'aircamp.forgot@gmail.com',
+      pass: process.env.GMAILPW
     }
+  });
+  var mailOptions = {
+    to: user.email,
+    from: 'aircamp.forgot@gmail.com',
+    subject: 'Your password has been changed',
+    text: 'Hello ' + user.userDisplay + ',\n\n' +
+      'This is a confirmation that the password for your account ' + user.email + ' on AirCamp has just been changed.\n'
+  };
+  smtpTransport.sendMail(mailOptions, function(err) {
+    done(err);
+  });
+  done();
+}
 
 module.exports = router;
