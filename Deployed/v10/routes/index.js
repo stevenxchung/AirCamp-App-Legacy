@@ -174,7 +174,7 @@ router.post('/reset/:token', function(req, res) {
                 done(err, user);
               });
             });
-          })
+          });
         } else {
             req.flash("error", "Passwords do not match.");
             return res.redirect('back');
@@ -214,7 +214,7 @@ router.post('/change', middleware.isLoggedIn, function(req, res) {
                 done(err, user);
               });
             });
-          })
+          });
         } else {
             req.flash("error", "Passwords do not match.");
             return res.redirect('back');
