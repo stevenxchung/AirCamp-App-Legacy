@@ -24,7 +24,7 @@ body {
     background-image: url(https://tinyurl.com/yanavken);
     background-repeat: no-repeat;
     background-position: 0% 75%;
-    background-size: 1150px;
+    background-size: 1175px;
 }
 
 .post-camp {
@@ -72,7 +72,7 @@ body {
 }
 
 .container {
-    padding-left: 5px;
+    padding: 0px 5px;
 }
 
 .vertical-menu a {
