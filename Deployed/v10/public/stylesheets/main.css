@@ -53,9 +53,10 @@ body {
 }
 
 .user-bio {
-    border: 2px solid rgba(0, 0, 0, 0.03);
+    border: 2px solid rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     margin-left: 12px;
+    margin-bottom: 25px;
 }
 
 .user-bio h1 {
@@ -144,7 +145,7 @@ body {
 
 /*Contains the listing on the right of the campground show page*/
 .listing-container {
-    border: 2px solid rgba(0, 0, 0, 0.03);
+    border: 2px solid rgba(0, 0, 0, 0.05);
     border-radius: 6px;
     padding: 25px;
 }
