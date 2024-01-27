@@ -1,8 +1,8 @@
-# Latest Deployed AirCamp Application (v10 updates)
+# Legacy AirCamp Application (v10 updates)
 
-The deployed AirCamp application has migrated to another repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp). This AirCamp (previously YelpCamp) application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed). For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. General updates from each iteration of AirCamp will be appended to this document. This website uses Heroku and mLab cloud database for hosting.
+Archive repository for the legacy AirCamp web application. For a more modern version of AirCamp on the latest framework and deployment, see the [aircamp repository](https://github.com/stevenxchung/aircamp). 
 
-**You can see the latest stable build of the AirCamp application [here](https://aircamp.herokuapp.com/).**
+**Legacy notes**: migrated to this repository due to the increased volume of files in the [bootcamp repository](https://github.com/stevenxchung/Web-Developer-Bootcamp). This AirCamp (previously YelpCamp) application deployment series will be based on [YelpCamp v12 (deployed)](https://github.com/stevenxchung/Web-Developer-Bootcamp/tree/master/Section%2038%20-%20Deploying/v12Deployed). For more details and documentation please visit the linked YelpCamp v12 (deployed) repository mentioned previously. General updates from each iteration of AirCamp will be appended to this document. This website uses Heroku and mLab cloud database for hosting.
 
 ## UI Improvements (v1 updates)
 In deployed v1 of this application we will be implementing the following improvements:
